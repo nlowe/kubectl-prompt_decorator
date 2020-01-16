@@ -1,6 +1,6 @@
 # kubectl prompt-decorator
 
-![](https://github.com/nlowe/kubectl-prompt_decorator/workflows/CI/badge.svg)  [![License](https://img.shields.io/badge/license-MIT-brightgreen)](./LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/nlowe/kubectl-prompt_decorator)](https://goreportcard.com/report/github.com/nlowe/kubectl-prompt_decorator)
+[![](https://github.com/nlowe/kubectl-prompt_decorator/workflows/CI/badge.svg)](https://github.com/nlowe/kubectl-prompt_decorator/actions)  [![License](https://img.shields.io/badge/license-MIT-brightgreen)](./LICENSE) [![Go Report Card](https://goreportcard.com/badge/github.com/nlowe/kubectl-prompt_decorator)](https://goreportcard.com/report/github.com/nlowe/kubectl-prompt_decorator)
 
 Prints your current context and default namespace, useful for adding to your shell's `$PROMPT`
 
