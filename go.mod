@@ -5,7 +5,6 @@ go 1.13
 require (
 	github.com/containerd/console v0.0.0-20191219165238-8375c3424e4d
 	github.com/fatih/color v1.9.0
-	github.com/mattn/go-colorable v0.1.4
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.5
 	github.com/stretchr/testify v1.4.0

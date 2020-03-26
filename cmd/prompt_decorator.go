@@ -4,10 +4,9 @@ import (
 	"fmt"
 
 	"github.com/containerd/console"
-
 	"github.com/fatih/color"
-
 	"github.com/nlowe/kubectl-prompt_decorator/decorator"
+	"github.com/nlowe/kubectl-prompt_decorator/decorator/theme"
 	"github.com/spf13/cobra"
 	"k8s.io/cli-runtime/pkg/genericclioptions"
 )
@@ -17,13 +16,11 @@ type options struct {
 	theme         string
 
 	persistentFlags *genericclioptions.ConfigFlags
-	streams         genericclioptions.IOStreams
 }
 
-func NewCmdPromptDecorator(streams genericclioptions.IOStreams) *cobra.Command {
+func NewCmdPromptDecorator() *cobra.Command {
 	opts := &options{
 		persistentFlags: genericclioptions.NewConfigFlags(true),
-		streams:         streams,
 	}
 
 	cmd := &cobra.Command{
@@ -33,9 +30,13 @@ func NewCmdPromptDecorator(streams genericclioptions.IOStreams) *cobra.Command {
 [☸ my-cluster:my-default-namespace]`,
 		SilenceUsage: true,
 		RunE: func(_ *cobra.Command, _ []string) (err error) {
-			cfg, err := opts.persistentFlags.ToRawKubeConfigLoader().RawConfig()
+			cfg, err := genericclioptions.NewConfigFlags(true).ToRawKubeConfigLoader().RawConfig()
 			if err != nil {
 				return err
+			}
+
+			if opts.disableColors {
+				opts.theme = theme.None
 			}
 
 			con := console.Current()
